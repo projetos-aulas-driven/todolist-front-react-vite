@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Tarefa from "./Tarefa";
+import styled from "styled-components";
 
 export default function ListaTarefas({ tarefas }) {
     const [terminadas, setTerminadas] = useState([]);
 
     return (
-        <ul className="lista-tarefas">
+        <Lista>
             {tarefas.map((tarefa, index) => (
                 <Tarefa
                     key={index}
@@ -15,6 +16,13 @@ export default function ListaTarefas({ tarefas }) {
                     setTerminadas={setTerminadas}
                 />
             ))}
-        </ul>
+        </Lista>
     );
 }
+
+const Lista = styled.ul`
+    display: flex;
+    flex-direction: column;
+    border-radius: 9px;
+    overflow: hidden;
+`
